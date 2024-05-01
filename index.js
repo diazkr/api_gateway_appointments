@@ -15,7 +15,7 @@ app.use('/appointment-service', createProxyMiddleware({
 }))
 
 app.use('/users-service', createProxyMiddleware({
-    target:'http://34.150.131.72:3002',
+    target:'http://35.221.2.215:3002',
     pathRewrite:{
         '^/users-service':''
     },
