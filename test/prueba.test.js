@@ -1,7 +1,11 @@
 const request = require('supertest');
-const app = require('../index'); 
+const { server, closeServer, app } = require('../index');
 
 describe('Pruebas de integración básicas', () => {
+
+    afterAll(async () => {
+        await closeServer(); // Cierre del servidor tras las pruebas
+        });
   it('Debe responder con código 200 en la ruta de prueba', async () => {
     const response = await request(app).get('/');
     expect(response.statusCode).toBe(200);

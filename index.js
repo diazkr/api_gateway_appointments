@@ -45,8 +45,20 @@ app.get('/', (req, res) => {
 });
 
 
-const server = app.listen(port, ()=>{
-    console.log(`Api Gateway escuchando es puerto ${port}`)
-})
+const server = app.listen(port, () => {
+    console.log(`Api Gateway escuchando en puerto ${port}`);
+});
 
-module.exports = server;
+const closeServer = () => {
+    return new Promise((resolve, reject) => {
+        server.close(err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve();
+        });
+    });
+};
+
+module.exports = { server, closeServer, app};
