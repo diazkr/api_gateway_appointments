@@ -6,7 +6,6 @@ const port = 3005;
 
 app.use(cors());
 
-//Creacion de las rutas
 app.use('/appointment-service', createProxyMiddleware({
     target:'https://appointments-gogtlsicya-uk.a.run.app',
     pathRewrite:{
