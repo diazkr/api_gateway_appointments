@@ -40,10 +40,13 @@ app.use('/login-service', createProxyMiddleware({
     changeOrigin: true 
 }))
 
+app.get('/', (req, res) => {
+    res.status(200).send('¡Bienvenido a la aplicación Express con middleware de proxy!');
+});
 
 
-app.listen(port, ()=>{
+const server = app.listen(port, ()=>{
     console.log(`Api Gateway escuchando es puerto ${port}`)
 })
 
-
+module.exports = server;
